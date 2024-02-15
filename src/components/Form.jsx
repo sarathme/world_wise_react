@@ -52,9 +52,10 @@ function Form() {
           throw new Error(
             "That doesn't seems to be a country. Please click at a valid country 🧐",
           );
+        console.log(data);
         setCityName(data.city || data.locality || '');
         setCountry(data.countryName);
-        setEmoji(convertToEmoji(data.countryCode));
+        setEmoji(data.countryCode);
       } catch (err) {
         setGeoCodingError(err.message);
       } finally {
@@ -102,7 +103,13 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={`${cityName}`}
         />
-        <span className={styles.flag}>{emoji}</span>
+        <span className={styles.flag}>
+          <img
+            alt={country}
+            src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${emoji}.svg`}
+            className="img"
+          />
+        </span>
       </div>
 
       <div className={styles.row}>

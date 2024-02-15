@@ -29,14 +29,21 @@ function City() {
     return <Spinner />;
   }
 
-  const { cityName, emoji, date, notes } = currentCity;
+  const { cityName, emoji, date, notes, country } = currentCity;
 
   return (
     <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+          <span>
+            <img
+              alt={country}
+              src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${emoji}.svg`}
+              className="img"
+            />
+          </span>{' '}
+          {cityName}
         </h3>
       </div>
 

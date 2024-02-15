@@ -59,7 +59,13 @@ function Map() {
             key={city.id}
           >
             <Popup>
-              <span>{city.emoji}</span>
+              <span>
+                <img
+                  alt={city.country}
+                  src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${city.emoji}.svg`}
+                  className="img"
+                />
+              </span>
               <span>{city.cityName}</span>
             </Popup>
           </Marker>
