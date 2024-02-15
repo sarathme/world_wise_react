@@ -20,6 +20,7 @@ export function convertToEmoji(countryCode) {
 const BASE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
 
 function Form() {
+  const [locality, setLocality] = useState('');
   const [cityName, setCityName] = useState('');
   const [country, setCountry] = useState('');
   const [isLoadingGeocoding, setisLoadingGeocoding] = useState(false);
@@ -41,7 +42,10 @@ function Form() {
           throw new Error(
             "That doesn't seems to be a country. Please click at a valid country 🧐",
           );
-        setCityName(data.city || data.locality || '');
+        console.log(data);
+        const city = data.city === data.locality ? '' : `, ${data.city}`;
+        setLocality(data.locality || '');
+        setCityName(city);
         setCountry(data.countryName);
         setEmoji(convertToEmoji(data.countryCode));
       } catch (err) {
@@ -65,13 +69,13 @@ function Form() {
         <input
           id="cityName"
           onChange={(e) => setCityName(e.target.value)}
-          value={cityName}
+          value={`${locality}${cityName}`}
         />
         <span className={styles.flag}>{emoji}</span>
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="date">When did you go to {cityName}?</label>
+        <label htmlFor="date">{`When did you go to ${locality}${cityName}?`}</label>
         <input
           id="date"
           onChange={(e) => setDate(e.target.value)}
@@ -80,7 +84,7 @@ function Form() {
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="notes">Notes about your trip to {cityName}</label>
+        <label htmlFor="notes">{`Notes about your trip to ${locality}${cityName}`}</label>
         <textarea
           id="notes"
           onChange={(e) => setNotes(e.target.value)}
