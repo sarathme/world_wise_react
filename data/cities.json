@@ -37,27 +37,15 @@
       }
     },
     {
-      "id": "0da5",
-      "cityName": "Chennai",
-      "country": "India",
-      "emoji": "IN",
-      "date": "2024-02-15T15:15:16.768Z",
-      "notes": "yeyyy",
+      "id": "6db6",
+      "cityName": "Castello de la Plana",
+      "country": "Spain",
+      "emoji": "ES",
+      "date": "2024-02-16T11:55:37.644Z",
+      "notes": "as",
       "position": {
-        "lat": "13.054911123302707",
-        "lng": "80.23143768310548"
-      }
-    },
-    {
-      "id": "a6a8",
-      "cityName": "Poonamalle",
-      "country": "India",
-      "emoji": "IN",
-      "date": "2024-02-15T15:15:43.522Z",
-      "notes": "yessss",
-      "position": {
-        "lat": "13.117781067670833",
-        "lng": "80.10303497314455"
+        "lat": "39.997243411922945",
+        "lng": "-0.009098052978515627"
       }
     }
   ]
